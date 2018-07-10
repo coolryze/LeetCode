@@ -1,17 +1,14 @@
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var res = [Int]()
         var dict = [Int: Int]()
         
-        for i in 0..<nums.count {
-            if let index = dict[target - nums[i]] {
-                res.append(index)
-                res.append(i)
-                break
+        for (i, num) in nums.enumerated() {
+            if let index = dict[target - num] {
+                return [index, i]
             }
-            dict[nums[i]] = i
+            dict[num] = i
         }
         
-        return res
+        fatalError("no valid outputs")
     }
 }
