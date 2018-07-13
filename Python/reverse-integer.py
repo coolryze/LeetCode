@@ -1,5 +1,3 @@
-import sys
-
 class Solution:
     def reverse(self, x):
         """
