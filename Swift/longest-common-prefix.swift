@@ -23,7 +23,7 @@ class Solution {
     }
     
     func longestCommonPrefix2(_ strs: [String]) -> String {
-        var res = [Character](), index = 0
+        var res = [Character]()
         
         guard let firstStr = strs.first else {
             return String(res)
@@ -32,19 +32,14 @@ class Solution {
         let firstStrChars = Array(strs[0])
         let strsChars = strs.map{ Array($0) }
         
-        while index < firstStr.count {
-            res.append(firstStrChars[index])
+        for i in 0..<firstStr.count {
+            res.append(firstStrChars[i])
             
-            for str in strsChars {
-                if index >= str.count {
-                    return String(res.dropLast())
-                }
-                if str[index] != res[index] {
+            for str in strsChars.dropFirst() {
+                if i >= str.count || str[i] != res[i] {
                     return String(res.dropLast())
                 }
             }
-            
-            index += 1
         }
         
         return String(res)
