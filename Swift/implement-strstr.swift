@@ -12,8 +12,8 @@ class Solution {
         
         for i in 0...hCount-nCount {
             let start = haystack.index(haystack.startIndex, offsetBy: i)
-            let end = haystack.endIndex
-            if String(haystack[start..<end]).hasPrefix(needle) {
+            let end = haystack.index(haystack.startIndex, offsetBy: i+nCount)
+            if String(haystack[start..<end]) == needle {
                 return i
             }
         }
