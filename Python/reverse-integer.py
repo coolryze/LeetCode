@@ -8,6 +8,7 @@ class Solution:
             return -self.reverse(-x)
 
         res = 0
+
         while x:
             res = res * 10 + x % 10
             x //= 10

@@ -5,12 +5,12 @@ class Solution:
         :rtype: str
         """
         if n <= 0:
-            return ""
+            return ''
 
-        res = "1"
+        res = '1'
 
         for _ in range(1, n):
-            temp = ""
+            temp = ''
             count = 1
             chars = list(res)
             current = chars[0]

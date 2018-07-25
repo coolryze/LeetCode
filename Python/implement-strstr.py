@@ -5,14 +5,6 @@ class Solution:
         :type needle: str
         :rtype: int
         """
-        return haystack.find(needle)
-
-    def strStr2(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
         hLen = len(haystack)
         nLen = len(needle)
         
@@ -25,3 +17,11 @@ class Solution:
             if haystack[i:i+nLen] == needle:
                 return i
         return -1
+
+    def strStr2(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        return haystack.find(needle)

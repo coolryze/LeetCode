@@ -7,7 +7,7 @@ class Solution:
         res = 0
         
         for i in reversed(s):
-            if i == " ":
+            if i == ' ':
                 if res:
                     break
             else:
@@ -19,4 +19,4 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        return len(s.strip().split(" ")[-1])
+        return len(s.split(' ')[-1])

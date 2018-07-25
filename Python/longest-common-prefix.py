@@ -5,9 +5,10 @@ class Solution:
         :rtype: str
         """
         if not strs:
-            return ""
+            return ''
 
         firstStr = strs[0]
+
         for i in range(len(firstStr)):
             for str in strs[1:]:
                 if i >= len(str) or str[i] != firstStr[i]:
