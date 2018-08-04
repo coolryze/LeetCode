@@ -7,7 +7,7 @@ class Solution(object):
         """
         d = dict()
 
-        for i in range(len(nums)):
-            if (target - nums[i]) in d:
-                return [d[target - nums[i]], i]
-            d[nums[i]] = i
+        for i, num in enumerate(nums):
+            if (target - num) in d:
+                return [d[target - num], i]
+            d[num] = i
