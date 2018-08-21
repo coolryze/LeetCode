@@ -1,12 +1,30 @@
 from collections import deque
 
-class MyStack:
+class Queue:
+    def __init__(self):
+        self.data = deque()
 
+    def push(self, x):
+        self.data.append(x)
+
+    def pop(self):
+        return self.data.popleft()
+
+    def peek(self):
+        return self.data[0]
+
+    def size(self):
+        return len(self.data)
+
+    def empty(self):
+        return len(self.data) == 0
+
+class Stack:
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.stack = deque()
+        self.queue = Queue()
 
     def push(self, x):
         """
@@ -14,7 +32,9 @@ class MyStack:
         :type x: int
         :rtype: void
         """
-        self.stack.append(x)
+        self.queue.push(x)
+        for _ in range(self.queue.size() - 1):
+            self.queue.push(self.queue.pop())
 
     def pop(self):
         """
@@ -22,7 +42,7 @@ class MyStack:
         :rtype: int
         """
         try:
-            return self.stack.pop()
+            return self.queue.pop()
         except IndexError:
             raise IndexError('pop from empty stack')
 
@@ -32,13 +52,20 @@ class MyStack:
         :rtype: int
         """
         try:
-            return self.stack[-1]
+            return self.queue.peek()
         except IndexError:
             raise IndexError('top from empty stack')
+
+    def size(self):
+        """
+        Get the stack size.
+        :rtype: int
+        """
+        return self.queue.size()
 
     def empty(self):
         """
         Returns whether the stack is empty.
         :rtype: bool
         """
-        return len(self.stack) == 0
+        return self.queue.empty()
