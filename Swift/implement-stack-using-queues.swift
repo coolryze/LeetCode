@@ -1,23 +1,58 @@
-class MyStack<T> {
-    private var stack: Array<T>
+class Queue<T> {
+    private var data: Array<T>
 
     init() {
-        stack = Array()
+        data = Array<T>()
     }
 
-    func push(x: T) {
-        stack.append(x)
+    func push(_ x: T) {
+        data.append(x)
     }
 
     func pop() -> T? {
-        return stack.popLast()
+        return data.removeFirst()
     }
 
-    func top() -> T? {
-        return stack.last
+    func peek() -> T? {
+        return data.first
+    }
+
+    func size() -> Int {
+        return data.count
     }
 
     func empty() -> Bool {
-        return stack.count == 0
+        return data.count == 0
+    }
+}
+
+class Stack<T> {
+    private var queue: Queue<T>
+
+    init() {
+        queue = Queue<T>()
+    }
+
+    func push(_ x: T) {
+        queue.push(x)
+        for _ in 0..<queue.size() - 1 {
+            queue.push(queue.pop()!)
+        }
+    }
+
+    func pop() -> T? {
+        return queue.pop()
+    }
+
+    func top() -> T? {
+        return queue.peek()
+    }
+
+    func size() -> Int {
+        return queue.size()
+    }
+
+    func empty() -> Bool {
+        return queue.empty()
     }
 }
