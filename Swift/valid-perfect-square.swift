@@ -21,7 +21,7 @@ class Solution {
             let mid = left + (right - left) / 2
             if mid * mid >= num {
                 right = mid - 1
-            } else if mid * mid < num {
+            } else {
                 left = mid + 1
             }
         }
