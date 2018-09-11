@@ -1,21 +1,21 @@
 class Solution {
     func firstUniqChar(_ s: String) -> Int {
         var dict = [Character: Bool]()
-        
-        for char in s.characters {
-            if let isDup = dict[char] {
+
+        for char in s {
+            if dict[char] != nil {
                 dict[char] = true
             } else {
                 dict[char] = false
             }
         }
-        
-        for (i, char) in Array(s.characters).enumerated() {
+
+        for (i, char) in Array(s).enumerated() {
             if !dict[char]! {
                 return i
             }
         }
-        
+
         return -1
     }
 }
