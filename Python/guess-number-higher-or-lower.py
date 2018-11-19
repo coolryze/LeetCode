@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution:
     def guessNumber(self, n):
         """
         :type n: int

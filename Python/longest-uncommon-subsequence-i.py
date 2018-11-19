@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution:
     def findLUSlength(self, a, b):
         """
         :type a: str
